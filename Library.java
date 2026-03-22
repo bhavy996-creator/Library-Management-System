@@ -15,4 +15,35 @@ class Library {
         }
         
     }
+    void issueBooks(int id){
+        for(Book b : books){
+            if(b.bookid == id){
+                if(!b.isIssued){
+                    b.isIssued = true;
+                    System.out.println("Book Issued Succesfully");
+                }
+                else{
+                    System.out.println("Book is already issued");
+                }
+                return ;
+
+            }
+        }
+        System.out.println("Book not found");
+    }
+    void returnBooks(int id){
+        for(Book b : books){
+            if(b.bookid == id){
+                if(b.isIssued){
+                    b.isIssued = false;
+                    System.out.println("Book return successfully");
+                }
+                else{
+                    System.out.println("This book was not issued");
+                }
+                return ;
+            }
+        }
+        System.out.println("Book not found");
+    }
 }
