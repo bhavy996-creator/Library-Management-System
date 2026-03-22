@@ -5,9 +5,11 @@ public class LibrarySystem {
         Library lib = new Library();
         int choice;
         do {
-            System.out.println("\n1.Add books");
+            System.out.println("\n1. Add books");
             System.out.println("2. Display books");
-            System.out.println("3. Exit");
+            System.out.println("3. Issue Books");
+            System.out.println("4. Return Books");
+            System.out.println("5. Exit");
             System.out.print("Enter choice:- ");
             choice = sc.nextInt();
             switch (choice) {
@@ -25,13 +27,25 @@ public class LibrarySystem {
                     lib.displayBooks();
                     break;
                 case 3:
-                    System.out.println("Thanks for visiting our library!!!");  
+                    System.out.print("Enter Book Id:- ");
+                    int issueid = sc.nextInt();
+                    lib.issueBooks(issueid);
+
                     break;  
+                case 4:
+                    System.out.print("Enter Book Id:- ");
+                    int returnid = sc.nextInt();
+                    lib.returnBooks(returnid);
+                    break;
+                    
+                case 5:
+                    System.out.println("Thanks for visiting our bank!!!");
+                    break;    
                 default:
                     System.out.println("INVALID CHOICE...");
                     break;
             }
-        } while (choice != 3);
+        } while (choice != 5);
         sc.close();
     }
 }
