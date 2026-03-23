@@ -21,17 +21,7 @@ class Library {
         }
         return null;
     }
-    //display books
-    void displayBooks(){
-        if(books.isEmpty()){
-            System.out.println("No books record found");
-            return;
-        }
-        for(Book b : books){
-            b.display();
-        }
-        
-    }
+
     //issuebook
     void issueBooks(int id, String username){
         Book b = findBookbyid(id);
@@ -63,9 +53,20 @@ class Library {
                 else{
                     System.out.println("This book was not issued");
                 }
-                return ;
+
             
         }
+            //display books
+    void displayBooks(){
+        if(books.isEmpty()){
+            System.out.println("No books record found");
+            return;
+        }
+        for(Book b : books){
+            b.display();
+        }
+        
+    }
 
     }
 
