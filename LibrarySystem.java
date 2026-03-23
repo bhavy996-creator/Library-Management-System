@@ -16,7 +16,7 @@ public class LibrarySystem {
             switch (choice) {
                 case 1:
                     System.out.print("Enter Book id:- ");
-                    int bookid = sc.nextInt();
+                    int id = sc.nextInt();
                     sc.nextLine();
 
                     System.out.print("Enter Book Title:- ");
@@ -25,7 +25,7 @@ public class LibrarySystem {
                     System.out.print("Enter Author:- ");
                     String author = sc.nextLine();
 
-                    lib.addBook(new Book(bookid, title, author));
+                    lib.addBook(new Book(id, title, author));
                     break;
 
                 case 2:
@@ -34,6 +34,7 @@ public class LibrarySystem {
                 case 3:
                     System.out.print("Enter Book Id:- ");
                     int issueid = sc.nextInt();
+                    sc.nextLine();
 
                     System.out.print("Enter Username:- ");
                     String username = sc.nextLine();
