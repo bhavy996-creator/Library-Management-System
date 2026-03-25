@@ -1,3 +1,8 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 class Library {
     ArrayList<Book> books = new ArrayList<>();
@@ -56,6 +61,49 @@ class Library {
 
             
         }
+        
+        //save file data
+        void saveToFile(){
+            try {
+                BufferedWriter writer = new BufferedWriter(new FileWriter("books.txt"));
+                for(Book b : books){
+                    writer.write(b.bookid + ", " + b.title + ", " + b.author + ", " + b.isIssued + ", " + b.issuedTo);
+                    writer.newLine();
+
+                }
+                writer.close();
+                System.out.println("\n...DATA SAVED TO FILE...");
+            } catch (IOException e) {
+                System.out.println("Error Saving File !!!");
+                
+            }
+        }
+
+        //load file data
+        void loadfromFile(){
+            try {
+                BufferedReader reader = new BufferedReader(new FileReader("books.txt"));
+                String line;
+                while((line = reader.readLine()) != null){
+                    String[] data = line.split(",");
+                    int id = Integer.parseInt(data[0]);
+                    String title = data[1];
+                    String author = data[2];
+                    boolean isIssued = Boolean.parseBoolean(data[3]);
+                    String issuedTo = data[4];
+
+                    Book b = new Book(id, title, author);
+                    b.isIssued = isIssued;
+                    b.issuedTo = issuedTo.equals("null")?null : issuedTo;
+
+                    books.add(b);
+                }
+                reader.close();
+            } catch (IOException e) {
+                System.out.println("No data found!!!");
+            }
+        }
+
             //display books
     void displayBooks(){
         if(books.isEmpty()){

@@ -3,6 +3,7 @@ public class LibrarySystem {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Library lib = new Library();
+        lib.loadfromFile();
         int choice;
         do {
             System.out.println("\n=== Library Management System ===");
@@ -50,6 +51,7 @@ public class LibrarySystem {
                     break;
                     
                 case 5:
+                    lib.saveToFile();
                     System.out.println("Thanks for visiting our bank!!!");
                     break;    
                 default:
