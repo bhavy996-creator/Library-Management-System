@@ -13,8 +13,8 @@ public class LibrarySystem {
             System.out.println("4. Return Books");
             System.out.println("5. Update details");
             System.out.println("6. Delete details");
-
-            System.out.println("7. Exit");
+            System.out.println("7. Updated issued user details");  
+            System.out.println("8. Exit");
             System.out.print("Enter choice:- ");
             choice = sc.nextInt();
             switch (choice) {
@@ -76,6 +76,17 @@ public class LibrarySystem {
                     break;
 
                 case 7:
+                    System.out.print("Enter id whose user needs to be updated: ");
+                    int bookId = sc.nextInt();
+                    sc.nextLine();
+                    
+                    System.out.print("Enter new username: ");
+                    String newUser = sc.nextLine();
+
+                    lib.updateissuedto(bookId, newUser);
+                    break;
+
+                case 8:
                     lib.saveToFile();
                     System.out.println("Thanks for visiting our bank!!!");
                     break;    
@@ -83,7 +94,7 @@ public class LibrarySystem {
                     System.out.println("INVALID CHOICE...");
                     break;
             }
-        } while (choice != 7);
+        } while (choice != 8);
         sc.close();
     }
 }

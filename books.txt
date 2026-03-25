@@ -1,2 +1,2 @@
-55,  Marvel Comics,  Stan Lee, false,  Bhavy Mittal
-12, Two States , Chetan Bhagat, false, null
+55,   Marvel Comics,   Stan Lee, true, Bhavy Mittal
+12,  Two States ,  Chetan Bhagat, false,  null

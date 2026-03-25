@@ -127,6 +127,21 @@ class Library {
             System.out.println("\n...Details update succesfully...");
         }
 
+        //update issued user details
+        void updateissuedto(int id, String newUser){
+            Book b = findBookbyid(id);
+            if(b == null){
+                System.out.println("No record found");
+                return;
+            }
+            if(!b.isIssued){
+                System.out.println("\nNo book issued for this id....");
+                return ;
+            }
+            b.issuedTo = newUser;
+            System.out.println("\n---Updated issued user details---");
+        }
+
             //display books
     void displayBooks(){
         if(books.isEmpty()){
