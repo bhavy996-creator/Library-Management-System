@@ -11,7 +11,10 @@ public class LibrarySystem {
             System.out.println("2. Display books");
             System.out.println("3. Issue Books");
             System.out.println("4. Return Books");
-            System.out.println("5. Exit");
+            System.out.println("5. Update details");
+            System.out.println("6. Delete details");
+
+            System.out.println("7. Exit");
             System.out.print("Enter choice:- ");
             choice = sc.nextInt();
             switch (choice) {
@@ -49,8 +52,30 @@ public class LibrarySystem {
                     int returnid = sc.nextInt();
                     lib.returnBooks(returnid);
                     break;
-                    
+
                 case 5:
+                    System.out.print("Enter book id to update:- ");
+                    int updateId = sc.nextInt();
+                    sc.nextLine();
+
+                    System.out.print("Enter new title:- ");
+                    String newtitle = sc.nextLine();
+
+                    System.out.print("Enter new author:- ");
+                    String newauthor = sc.nextLine();
+
+                    lib.updateBook(updateId, newtitle, newauthor);
+                    break;
+                
+                case 6:
+                    System.out.print("Enter book id to be deleted:- ");
+                    int deleteId = sc.nextInt();
+                    sc.nextLine();
+
+                    lib.deleteBook(deleteId);
+                    break;
+
+                case 7:
                     lib.saveToFile();
                     System.out.println("Thanks for visiting our bank!!!");
                     break;    
@@ -58,7 +83,7 @@ public class LibrarySystem {
                     System.out.println("INVALID CHOICE...");
                     break;
             }
-        } while (choice != 5);
+        } while (choice != 7);
         sc.close();
     }
 }

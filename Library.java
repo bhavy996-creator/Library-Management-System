@@ -104,6 +104,29 @@ class Library {
             }
         }
 
+        //delete block
+        void deleteBook(int id){
+            Book b = findBookbyid(id);
+            if(b == null){
+                System.out.println("No record found");
+                return;
+            }
+            books.remove(b);
+            System.out.println("\n...Details removed succesfully...");
+        }
+
+        //update block
+        void updateBook(int id, String newtitle, String newauthor){
+            Book b = findBookbyid(id);
+            if(b == null){
+                System.out.println("No record found");
+                return;
+            }
+            b.title = newtitle;
+            b.author = newauthor;
+            System.out.println("\n...Details update succesfully...");
+        }
+
             //display books
     void displayBooks(){
         if(books.isEmpty()){
